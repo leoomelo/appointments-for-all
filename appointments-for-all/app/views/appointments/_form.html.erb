@@ -1,0 +1,37 @@
+<%= form_with(model: appointment) do |form| %>
+  <% if appointment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+        <% appointment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :start_time_at, style: "display: block" %>
+    <%= form.datetime_field :start_time_at %>
+  </div>
+
+  <div>
+    <%= form.label :end_time_at, style: "display: block" %>
+    <%= form.datetime_field :end_time_at %>
+  </div>
+
+  <div>
+    <%= form.label :customer_id, style: "display: block" %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :name, prompt: "Selecione um cliente" %>
+  </div>
+
+  <div>
+    <%= form.label :professional_id, style: "display: block" %>
+    <%= form.collection_select :professional_id, Professional.all, :id, :name, prompt: "Selecione um profissional" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
