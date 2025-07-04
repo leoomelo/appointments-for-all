@@ -3,10 +3,11 @@
 <% if @appointments.any? %>
   <ul>
     <% @appointments.each do |appointment| %>
+      <% decorated_appointment = AppointmentDecorator.new(appointment) %>
       <li>
         <strong>Customer:</strong> <%= appointment.customer.name %><br>
-        <strong>Start Date:</strong> <%= l(appointment.start_time_at) %><br>
-        <strong>End Date:</strong> <%= l(appointment.end_time_at) %>
+        <strong>Start Date:</strong> <%= decorated_appointment.formatted_start_time_at %><br>
+        <strong>End Date:</strong> <%= decorated_appointment.formatted_end_time_at %>
       </li>
     <% end %>
   </ul>

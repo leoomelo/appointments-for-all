@@ -1,10 +1,68 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* Estilo base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.appointments-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.appointment-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 4px solid #3498db;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.no-appointments {
+  background-color: #fff3cd;
+  padding: 1rem;
+  border-left: 4px solid #ffa502;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.navigation-links {
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin-right: 1rem;
+  background-color: #bdc3c7;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #95a5a6;
+}
+
+.btn-primary {
+  background-color: #3498db;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}

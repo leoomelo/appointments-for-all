@@ -1,22 +1,23 @@
 <div id="<%= dom_id appointment %>">
+  <% decorated_appointment = AppointmentDecorator.new(appointment) %>
   <p>
     <strong>Start time at:</strong>
-    <%= appointment.start_time_at %>
+    <%= decorated_appointment.formatted_start_time_at %>
   </p>
 
   <p>
     <strong>End time at:</strong>
-    <%= appointment.end_time_at %>
+    <%= decorated_appointment.formatted_end_time_at %>
   </p>
 
   <p>
     <strong>Customer:</strong>
-    <%= appointment.customer_id %>
+    <%= appointment.customer.name %>
   </p>
 
   <p>
     <strong>Professional:</strong>
-    <%= appointment.professional_id %>
+    <%= appointment.professional.name %>
   </p>
 
 </div>
