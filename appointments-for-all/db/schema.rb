@@ -15,8 +15,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_03_100548) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "start_time_at"
-    t.datetime "end_time_at"
+    t.datetime "start_time_at", null: false
+    t.datetime "end_time_at", null: false
     t.bigint "customer_id", null: false
     t.bigint "professional_id", null: false
     t.datetime "created_at", null: false

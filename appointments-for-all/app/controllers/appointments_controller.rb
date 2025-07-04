@@ -21,8 +21,8 @@ class AppointmentsController < ApplicationController
 
   # POST /appointments or /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params)
-
+    @appointment = AppointmentService::Create.new(appointment_params).call
+    # render json: { "errors": @appointment.errors }
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: "Appointment was successfully created." }
