@@ -1,0 +1,18 @@
+<h1>Agendamentos de <%= @professional.name %></h1>
+
+<% if @appointments.any? %>
+  <ul>
+    <% @appointments.each do |appointment| %>
+      <li>
+        <strong>Customer:</strong> <%= appointment.customer.name %><br>
+        <strong>Start Date:</strong> <%= l(appointment.start_time_at) %><br>
+        <strong>End Date:</strong> <%= l(appointment.end_time_at) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There's no schedule for this professional</p>
+<% end %>
+
+<%= link_to "Show this professional", @professional %> |
+<%= link_to "Back to professionals", professionals_path %>

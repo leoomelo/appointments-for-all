@@ -6,6 +6,11 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.all
   end
 
+  def by_professional
+    @professional = Professional.find(params[:professional_id])
+    @appointments = @professional.appointments.order(start_time_at: :desc)
+  end
+
   # GET /appointments/1 or /appointments/1.json
   def show
   end

@@ -3,6 +3,7 @@
 <%= render @professional %>
 
 <div>
+  <%= link_to "See #{@professional.name} appointments", professional_professional_appointments_path(@professional) %>
   <%= link_to "Edit this professional", edit_professional_path(@professional) %> |
   <%= link_to "Back to professionals", professionals_path %>
 
