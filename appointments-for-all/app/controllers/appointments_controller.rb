@@ -3,16 +3,16 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.includes([:professional, :customer])
+    @appointments = Appointment.includes([ :professional, :customer ])
   end
 
   def by_professional
     @professional = Professional.find(params[:professional_id])
-    @appointments = @professional.appointments.includes([:customer]).order(start_time_at: :desc)
+    @appointments = @professional.appointments.includes([ :customer ]).order(start_time_at: :desc)
   end
 
   def all_appointments
-    @appointments = Appointment.unscoped.includes([:professional, :customer])
+    @appointments = Appointment.unscoped.includes([ :professional, :customer ])
     render :index
   end
 

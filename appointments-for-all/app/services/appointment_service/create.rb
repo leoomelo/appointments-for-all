@@ -1,6 +1,5 @@
 module AppointmentService
   class Create
-
     def initialize(params)
       @params = params
       @professional = Professional.find(params[:professional_id])
@@ -23,7 +22,7 @@ module AppointmentService
 
     def has_conflict?
       start_time = @params[:start_time_at]
-      
+
       Appointment.where(professional_id: @params[:professional_id])
                  .where("start_time_at < ? AND end_time_at >= ?", start_time, start_time)
                  .exists?
