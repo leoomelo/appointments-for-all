@@ -11,6 +11,11 @@ class AppointmentsController < ApplicationController
     @appointments = @professional.appointments.includes([:customer]).order(start_time_at: :desc)
   end
 
+  def all_appointments
+    @appointments = Appointment.unscoped.includes([:professional, :customer])
+    render :index
+  end
+
   # GET /appointments/1 or /appointments/1.json
   def show
   end

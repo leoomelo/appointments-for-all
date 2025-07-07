@@ -1,4 +1,6 @@
 class Appointment < ApplicationRecord
+  default_scope { where("start_time_at >= ?", Time.current) }
+
   belongs_to :customer
   belongs_to :professional
 
